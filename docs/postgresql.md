@@ -5,6 +5,10 @@ const sql = view(Inputs.textarea({value: "select 'Hello world'", label: "SQL"}))
 ```
 ## Query result
 ```js
+Inputs.table(response)
+```
+
+```js
 html`<pre>${JSON.stringify(response, null, 4)}</pre>`
 ```
 ## How this works
@@ -12,7 +16,8 @@ html`<pre>${JSON.stringify(response, null, 4)}</pre>`
 import { PGlite } from "npm:@electric-sql/pglite@0.0.1-alpha.2/dist/index.min.js";
 ```
 ```js echo
-const db = new PGlite
+const db = new PGlite()
+// Pass 'idb://my-pgdata' for indexedDB persistence
 ```
 ```js echo
 const response = await db.query(sql)
